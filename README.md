@@ -5,4 +5,4 @@ Extensively worked on data cleaning and data wrangling to analyze the number of 
 Used time series analysis to check if the events of death follow stationarity and forecasted the trends.
 
 ## 🔗 Links
-[Brief Report on Rpubs] (https://rpubs.com/parth_lalit/ispel)
+[[Brief Report on Rpubs]] (https://rpubs.com/parth_lalit/ispel)
