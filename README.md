@@ -6,3 +6,5 @@ Used time series analysis to check if the events of death follow stationarity an
 
 ## 🔗 Links
 [[Brief Report on Rpubs]](https://rpubs.com/parth_lalit/ispel)
+
+Israeli- Palestinian Conflict © 2023 by Partha Lalit is licensed under CC BY-SA 4.0
