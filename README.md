@@ -4,7 +4,7 @@
 You can find all the source codes markdowns attached with the links below
 
 ## 🔗 Links
-[[Israeli-Palestinian Conflict]](https://rpubs.com/parth_lalit/ispel)
+[Israeli-Palestinian Conflict](https://rpubs.com/parth_lalit/ispel)
 
 
 
