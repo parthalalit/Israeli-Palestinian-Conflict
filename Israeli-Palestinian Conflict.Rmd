@@ -47,6 +47,13 @@ conflict= read.csv('C:/Users/12par/OneDrive/Desktop/isr_pse_conflict_20_copy.csv
 
 **Data Cleaning and Manipulation**
 
+All the blank values were converted to NA values.
+A vismiss plot helped in understanding the NA values
+Columns with maximum NA values were discarded and the remaining rows were removed. This helped in effective elimination of missing data.
+Dates were reformatted into YYYY and MM YYYY formats for the analysis.
+Age were converted to age groups.
+The data contained the city wise locations, which was changed to district/region wise locations for heat maps.
+
 ```{r echo=TRUE, message=TRUE, warning=FALSE, paged.print=FALSE}
 
 #Converting blank values to NA values
@@ -117,6 +124,7 @@ df_clean= select(df3,-c(NEW_FORMAT))
 
 ```
 
+
 **Graphical Insights**
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -133,6 +141,7 @@ df_clean%>%
   hc_tooltip(pointFormat = '<b> Count </b>: {point.y} <br>') %>%  
   hc_title(text = "Genderwise Count")
 ```
+
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Age Group Bar Chart
@@ -216,6 +225,9 @@ ggplot(w, aes(label = w$type_of_injury, size = w$count, color= w$count)) +
 ```
 
 **Heat Maps**
+
+Shape files contain the coordinates and maps of any geographical location. They are used to plot heat maps. Firstly we select the required variables and merge them with the shape file. Then we plot a heatmap using ggplot and plotly.
+In this case, if you hover your cursor on the white borders of any district/region, you can find Total death count, Palestinians dead in Palestine count and the count of Israelis dead in Palestine(similarly for Israel) which summarizes the requirement of 3 heat maps for each country to one single heat map. 
 
 ```{r echo= T, include=FALSE}
 #Importing Shape Files
@@ -377,6 +389,9 @@ fig
 
 **Time Series**
 
+For time series analysis, it was required to rearrange all the dates in ascending order of events. Some dates were found to be missing. Therefore the missing dates were imputed using Kamlan filter.
+The time series plot, ADF test, ACF and PACF plots were done followed by forecasting.
+
 ```{r fig.height=8, fig.width=15, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 #Reformatting the dates in the ascending order for time series 
@@ -456,6 +471,40 @@ datatable(df_clean, options = list(
   scrollCollapse = TRUE  # Collapse table borders when scrollbar is present
 ))
 ```
+
+You can go through the detailed report of the analysis at:    [Israeli-Palestinian Conflict Report](https://rpubs.com/parth_lalit/ispel)
+
+
+# References
+[Kaggle Dataset](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian/data)
+
+[Predictability of International Terrorism: A Time-Series Analysis](https://www.ojp.gov/ncjrs/virtual-library/abstracts/predictability-international-terrorism-time-series-analysis)
+
+[Israeli–Palestinian conflict](https://en.wikipedia.org/wiki/Israeli%E2%80%93Palestinian_conflict)
+
+[The Question of Palestine](https://www.un.org/unispal/history/)
+
+[Israel-Palestine Conflict Explained: History & Analysis | Hamas, Gaza, Al Aqsa & West Bank](https://www.youtube.com/watch?v=pJQwwHMg0VQ&t=2114s)
+
+[What’s the Israel-Palestine conflict about? A simple guide](https://aljazeera.com/news/2023/10/9/whats-the-israel-palestine-conflict-about-a-simple-guide)
+
+[The bloody history behind how Israel, and Palestine, came into existence](https://indianexpress.com/article/research/the-bloody-history-behind-how-israel-and-palestine-came-into-existence-8980609/)
+
+[2014 GAZA CONFLICT](https://www.unrwa.org/2014-gaza-conflict)
+
+[Timeline of the 2014 Gaza War](https://en.wikipedia.org/wiki/Timeline_of_the_2014_Gaza_War)
+
+[Operation Defensive Shield](https://en.wikipedia.org/wiki/Operation_Defensive_Shield)
+
+[Second Intifada](https://en.wikipedia.org/wiki/Second_Intifada)
+
+[Israeli West Bank barrier](https://en.wikipedia.org/wiki/Israeli_West_Bank_barrier#:~:text=Most%20of%20the%20barrier%20was,long%2C%20run%20south%20of%20Ramallah)
+
+[Gaza War (2008–2009)](https://en.wikipedia.org/wiki/Gaza_War_(2008%E2%80%932009))
+
+[2012 Israeli operation in the Gaza Strip](https://en.wikipedia.org/wiki/2012_Israeli_operation_in_the_Gaza_Strip)
+
+
 
 ***Thank you for reading***
 
